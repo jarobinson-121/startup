@@ -10,7 +10,7 @@ There is something so utterly fascinating about the idea that the general public
 ![Home Screen Design Image](/Images/Design%20Screenshots/Home_Screen.png)
 ![Generated Theory Screen Design Image](/Images/Design%20Screenshots/New_Theory.png)
 ![Saved Theories Screen Design Image](/Images/Design%20Screenshots/Saved_Theories.png)
-![Sign In Screen Design Image](/Images/Design%20Screenshots/Sign-in.png)
+![Sign In Screen Design Image](/Images/Design%20Screenshots/Sign_in.png)
 
 ### Key Features
 
