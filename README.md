@@ -7,7 +7,7 @@
 There is something so utterly fascinating about the idea that the general public doesn't know something, or that there's some force at play that's hidden beneath the surface. This application is a fun approach to scratching the conspiracy itch, without creating unsafe environments of misinformation online. The site allows you to generate conspiracy theories using chat GPT and some input from the user, and save your favorites to remember and share them with your friends.
 
 ### Design
-![Home Screen Design Image](Images/Design Screenshots/Home_Screen.png)
+![Home Screen Design Image](/Images/Design Screenshots/Home_Screen.png)
 ![Generated Theory Screen Design Image](Images/Design\ Screenshots/Screenshot\ 2024-09-14\ at\ 19.12.34.png)
 ![Saved Theories Screen Design Image](Images/Design\ Screenshots/Screenshot\ 2024-09-14\ at\ 19.12.52.png)
 ![Sign In Screen Design Image](Images/Design Screenshots/Screenshot 2024-09-14 at 19.15.46.png)
