@@ -43,3 +43,12 @@ I will use the required technologies and services in this way:
 
 
 ## HTML Deliverable
+
+For this deliverable I built out the structure of my application in HTML.
+
+* HTML Pages - Four HTML pages for landing, sign in, the generated conspiracies, and saved conspiracies.
+* Links - There are links in the navigation bar at the top to navigate between pages. 
+* Text - The generated theories are represented with filler text on the pages.
+* Images - I didn't have any images to add, really, but I added an icon to the nav.
+* DB/Login - Input boxes and button to login were added to the sign in page.
+* Websocket - Recently generated theories are displayed on the home page. 
