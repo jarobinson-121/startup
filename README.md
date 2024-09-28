@@ -40,3 +40,6 @@ I will use the required technologies and services in this way:
 ** DB/Login - ** Store users and theories in database. Regist and login users. Credentials stored in the database, and theories can't be saved without authentication.
 
 ** Websocket - ** Recently generated theories displayed on the Landing page.
+
+
+## HTML Deliverable
