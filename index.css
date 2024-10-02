@@ -1,0 +1,21 @@
+* {
+    font-family: 'Courier';
+}
+
+html {
+    height: 100%;
+}
+
+main {
+    background-color: #E1C793;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 10vw
+}
+
+#sign-in-btn, #show-me-btn {
+    background-color: #410B13;
+    color: white;
+    border-color: #410B13
+}
