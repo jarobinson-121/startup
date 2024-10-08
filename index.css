@@ -2,7 +2,7 @@
     font-family: 'Courier';
 }
 
-html {
+html, body {
     height: 100%;
 }
 
@@ -14,8 +14,34 @@ main {
     padding: 10vh 10vw
 }
 
+#recent-disc-sec {
+    padding-top: 48px;
+}
+
+#recent-disc-text {
+    padding-bottom: 3vh;
+}
+
+#home-search {
+    padding-top: 48px;
+}
+
 #sign-in-btn, #show-me-btn {
     background-color: #410B13;
     color: white;
     border-color: #410B13
+}
+
+#theme_input_field {
+    background-color: #E1C793;
+    border-color: #410B13;
+    color: #410B13 !important; 
+}
+
+#navbar {
+    background-color: #E1C793 !important;
+}
+
+.theory-text {
+    padding-bottom: 2vh;
 }

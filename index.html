@@ -23,7 +23,7 @@
                 </menu>
             </nav> --> 
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
                 <img src="conspirtatoriumIcon.svg" alt="Conspiratorium Icon" width="40"/>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -34,17 +34,12 @@
                       <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">My Files</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
+                      <a class="nav-link" href="files.html">My Files</a>
                     </li>
                   </ul>
                   <button class="btn btn-primary ml-auto btn-sm" type="button" id="sign-in-btn">Authenticate</button>
                 </div>
               </nav>
-
-            <hr />
         </header>
 
         <main>
@@ -55,24 +50,28 @@
                     <button type="submit">Show Me</button>
                 </form> -->
 
-                <form>
+                <form id="home-search">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Enlighten me about...</label>
-                      <input class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text text-muted">Is there somthing I should put here?</small>
+                      <input class="form-control" id="theme_input_field" placeholder="Enlighten me about...">
                     </div>
                     <button type="submit" class="btn btn-primary" id="show-me-btn">Show Me</button>
                   </form>
             </div>
 
-            <div>
-                <h2>Recent Discoveries</h2>
-                <h3>Area 51</h3>
-                <p>Area 51 is a top-secret military base in the Nevada desert. It is the most famous secret military installation in the world. The base has been shrouded in secrecy, with many conspiracy theories surrounding its purpose. Some believe that the base is used to store and study alien technology, while others think it is a testing ground for experimental aircraft. The truth is still unknown, as the US government has never officially acknowledged the base's existence.</p>
-                <h3>Chemtrails</h3>
-                <p>Chemtrails are the white streaks that form behind airplanes in the sky. Some believe that these streaks are actually chemicals being sprayed into the atmosphere for nefarious purposes. The most common theory is that the government is using chemtrails to control the weather or manipulate the population. However, scientists have debunked these claims, stating that chemtrails are simply contrails, which are formed when water vapor condenses and freezes in the cold air at high altitudes.</p>
-                <h3>Flat Earth</h3>
-                <p>The flat Earth theory is the belief that the Earth is flat, rather than a sphere. This theory has been around for centuries, but has gained popularity in recent years due to the rise of the internet and social media. Proponents of the flat Earth theory claim that the Earth is a disc, with the North Pole at the center and the continents spread out around it. However, this theory has been debunked by scientists, who have provided overwhelming evidence that the Earth is round.</p>
+            <div id="recent-disc-sec">
+                <h2 id="recent-disc-text">Recent Discoveries</h2>
+                <div class="theory-text">
+                  <h3>Area 51</h3>
+                  <p>Area 51 is a top-secret military base in the Nevada desert. It is the most famous secret military installation in the world. The base has been shrouded in secrecy, with many conspiracy theories surrounding its purpose. Some believe that the base is used to store and study alien technology, while others think it is a testing ground for experimental aircraft. The truth is still unknown, as the US government has never officially acknowledged the base's existence.</p>  
+                </div>
+                <div class="theory-text">
+                  <h3>Chemtrails</h3>
+                  <p>Chemtrails are the white streaks that form behind airplanes in the sky. Some believe that these streaks are actually chemicals being sprayed into the atmosphere for nefarious purposes. The most common theory is that the government is using chemtrails to control the weather or manipulate the population. However, scientists have debunked these claims, stating that chemtrails are simply contrails, which are formed when water vapor condenses and freezes in the cold air at high altitudes.</p>  
+                </div>
+                <div class="theory-text">
+                  <h3>Flat Earth</h3>
+                  <p>The flat Earth theory is the belief that the Earth is flat, rather than a sphere. This theory has been around for centuries, but has gained popularity in recent years due to the rise of the internet and social media. Proponents of the flat Earth theory claim that the Earth is a disc, with the North Pole at the center and the continents spread out around it. However, this theory has been debunked by scientists, who have provided overwhelming evidence that the Earth is round.</p>  
+                </div>
             </div>
         </main>
 
