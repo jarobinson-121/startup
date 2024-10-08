@@ -12,4 +12,16 @@
 * :wq - Quit and save
 
 ## CSS
+* '#' is used for ids
+* Bootstrap doesn't have code as easily accessible for footers as it does for nav bars
+* 
+
+
+## Javascript
+* added to HTML in almost the same way as CSS is added
+    * Similar idea of referencing a file
+    * inline JS is usually put in the <script></script> tag
+* events
+    * when something happens, and the listeners catch that event, it will trigger something
+    * Much more modern than pulling the whole time
 * 
