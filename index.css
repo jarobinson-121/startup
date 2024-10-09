@@ -54,3 +54,10 @@ main {
     color: #410B13;
     border-color: #410B13;
 }
+
+.btn-outline-primary:hover {
+    background-color: #410B13 !important;
+    color: white !important;
+    border-color: #410B13 !important;
+
+}
