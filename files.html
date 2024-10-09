@@ -10,20 +10,23 @@
     </head>
     <body>
         <header>
-            <nav>
-                <span>
-                    <img src="conspirtatoriumIcon.svg" alt="Conspiratorium Icon" width="50"/>
-                    <h1>Conspiratorium</h1>
-                </span>
-                <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-                <menu>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="files.html">My Files</a></li>
-                    <li><a href="signin.html">Authenticate</a></li>
-                </menu>
-            </nav>
-
-            <hr />
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+                <img src="conspirtatoriumIcon.svg" alt="Conspiratorium Icon" width="40"/>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="files.html">My Files</a>
+                    </li>
+                  </ul>
+                  <button class="btn btn-primary ml-auto btn-sm" type="button" id="sign-in-btn">Authenticate</button>
+                </div>
+              </nav>
         </header>
 
         <main>
@@ -42,11 +45,11 @@
             </div>
         </main>
 
-        <footer>
-            <hr />
-            <span >Jared Robinson</span>
-            <br />
-            <a href="https://github.com/jarobinson-121/startup/tree/main">GitHub</a>
+        <footer class="bg-dark text-white-50">
+            <div class="container-fluid">
+              <span class="text-light">Jared Robinson</span>
+              <a class="text-light" href="https://github.com/jarobinson-121/startup/tree/main">Github</a>
+            </div>
         </footer>
 
     </body>
