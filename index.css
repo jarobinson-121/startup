@@ -7,14 +7,14 @@ html, body {
 }
 
 main {
-    background-color: #E1C793;
+    background-color: #EFDAAF;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10vh 10vw
 }
 
-#recent-disc-sec {
+#recent-disc-sec, .theories-header {
     padding-top: 48px;
 }
 
@@ -33,15 +33,24 @@ main {
 }
 
 #theme_input_field {
-    background-color: #E1C793;
+    background-color: #EFDAAF;
     border-color: #410B13;
-    color: #410B13 !important; 
+    color: black !important; 
+}
+
+#theme_input_field::placeholder {
+    color: #424242;
 }
 
 #navbar {
-    background-color: #E1C793 !important;
+    background-color: #EFDAAF !important;
 }
 
 .theory-text {
     padding-bottom: 2vh;
+}
+
+#teach-me-btn {
+    color: #410B13;
+    border-color: #410B13;
 }
