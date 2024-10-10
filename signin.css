@@ -2,24 +2,20 @@
     font-family: 'Courier';
 }
 
-html {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
 }
-
+  
 main {
     background-color: #EFDAAF;
+    flex: 1 100vh;
     display: flex;
-    flex: 1;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 10vh 15vw;
-}
-
-body {
-    z-index: 0;
+    justify-content: space-around;
+    padding: 10vh 30vw;
 }
 
 #top-secret {
@@ -78,7 +74,19 @@ body {
 
 }
 
-/* @media (max-height: 2000px) {
+.nav-item {
+    padding: 0 .5em !important;
+}
+  
+  footer {
+    flex: 0 30px;
+  }
+  
+  footer a {
+    float: right;
+  }
+  
+  @media (max-height: 600px) {
     header {
       display: none;
     }
@@ -88,13 +96,4 @@ body {
     main {
       flex: 1 100vh;
     }
-  } */
-
-
-.nav-item {
-    margin: 0 .5em;
-}
-
-/* footer {
-    float: right;
-  } */
+  }
