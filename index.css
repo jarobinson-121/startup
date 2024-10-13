@@ -12,7 +12,8 @@ html {
 main {
     background-color: #EFDAAF;
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    flex: 1 100vh;
     justify-content: center;
     align-items: center;
     padding: 10vh 15vw;
@@ -20,6 +21,10 @@ main {
 
 body {
     z-index: 0;
+    height: 100vh;
+    flex: 1 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #top-secret {
