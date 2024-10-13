@@ -52,3 +52,14 @@ For this deliverable I built out the structure of my application in HTML.
 * Images - I didn't have any images to add, really, but I added an icon to the nav.
 * DB/Login - Input boxes and button to login were added to the sign in page.
 * Websocket - Recently generated theories are displayed on the home page. 
+
+## CSS Deliverable
+
+For this deliverable I added CSS styling to the pages so they will appear as designed.
+
+* Header, Footer, and Main Content Body
+* Navigation Elements - Link styling and navbar styling was updated using Bootstrap and CSS. 
+* Responsive Sizing - The content resizes with the window. 
+* Elements - Good whitespace, object placement, and colors used.
+* Text - Consistent fonts imported.
+* Images - Bonus image added behind page content. 
