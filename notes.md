@@ -24,4 +24,16 @@
 * events
     * when something happens, and the listeners catch that event, it will trigger something
     * Much more modern than pulling the whole time
-* 
+* Promises
+    * Always in one of three states
+        * Pending = Currently Running asynchronously
+        * Fullfilled - Completed successfully
+        * Rejected - Failed to complete
+    * Has three special methods
+        * .then() - Once the function resolves, do this
+        * .catch() - If it fails(rejects), do this
+        * .finally() - Do this either way
+    * What to do in case internet or database goes down?
+        * When you get the data from database, save it in local storage
+* Async/Await
+    * 
