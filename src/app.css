@@ -1,0 +1,105 @@
+* {
+    font-family: 'Courier';
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: #EFDAAF;
+    display: flex;
+    flex-direction: column;
+    flex: 1 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 15vw;
+}
+
+body {
+    z-index: 0;
+    height: 100vh;
+    flex: 1 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#top-secret {
+    position: absolute; 
+    right: 0; 
+    transform: rotate(45deg); 
+    z-index: 1;
+    opacity: .75;
+}
+
+#recent-disc-sec, .theories-header {
+    padding-top: 48px;
+}
+
+#recent-disc-text {
+    padding-bottom: 3vh;
+}
+
+#home-search {
+    padding-top: 48px;
+}
+
+#sign-in-btn, #show-me-btn, #login-btn {
+    background-color: #410B13;
+    color: white;
+    border-color: #410B13
+}
+
+#theme_input_field, #login-input-field {
+    background-color: #EFDAAF;
+    border-color: #410B13;
+    color: black !important; 
+}
+
+#theme_input_field::placeholder {
+    color: #424242;
+}
+
+#navbar {
+    background-color: #EFDAAF !important;
+}
+
+.theory-text {
+    padding-bottom: 2vh;
+}
+
+#teach-me-btn {
+    color: #410B13;
+    border-color: #410B13;
+}
+
+.btn-outline-primary:hover {
+    background-color: #410B13 !important;
+    color: white !important;
+    border-color: #410B13 !important;
+
+}
+
+/* @media (max-height: 2000px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+    }
+  } */
+
+
+.nav-item {
+    margin: 0 .5em;
+}
+
+/* footer {
+    float: right;
+  } */

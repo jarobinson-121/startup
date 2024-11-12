@@ -37,3 +37,19 @@
         * When you get the data from database, save it in local storage
 * Async/Await
     * 
+* Destructuring
+    * 
+
+* Node.JS
+    * we will use it to run code on our servers
+    * npm
+        * Node package manager
+        * allows us to use code that other people have written
+        * be careful, you are running foreign code on your device
+
+* React
+    * What does react do?
+        * combines Javascript and HTML
+        * jsx is the code language that we will use that does this
+    * Components
+        * 
