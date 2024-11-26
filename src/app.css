@@ -1,105 +1,52 @@
-* {
-    font-family: 'Courier';
+.body {
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+  height: 100vh;
 }
 
-html {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+header {
+  flex: 0 80px;
 }
 
 main {
-    background-color: #EFDAAF;
-    display: flex;
-    flex-direction: column;
-    flex: 1 100vh;
-    justify-content: center;
-    align-items: center;
-    padding: 10vh 15vw;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-body {
-    z-index: 0;
-    height: 100vh;
-    flex: 1 100vh;
-    display: flex;
-    flex-direction: column;
+footer {
+  flex: 0 30px;
 }
 
-#top-secret {
-    position: absolute; 
-    right: 0; 
-    transform: rotate(45deg); 
-    z-index: 1;
-    opacity: .75;
+menu {
+  flex: 1;
+  display: flex;
+  /*  overwrite Bootstrap so the menu does not wrap */
+  flex-direction: row !important;
+  list-style: none;
 }
 
-#recent-disc-sec, .theories-header {
-    padding-top: 48px;
+.navbar-brand {
+  padding-left: 0.3em;
+  border-bottom: solid rgb(182, 182, 182) thin;
 }
 
-#recent-disc-text {
-    padding-bottom: 3vh;
+menu .nav-item {
+  padding: 0 0.3em;
 }
 
-#home-search {
-    padding-top: 48px;
+footer a {
+  float: right;
 }
 
-#sign-in-btn, #show-me-btn, #login-btn {
-    background-color: #410B13;
-    color: white;
-    border-color: #410B13
+@media (max-height: 600px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
 }
-
-#theme_input_field, #login-input-field {
-    background-color: #EFDAAF;
-    border-color: #410B13;
-    color: black !important; 
-}
-
-#theme_input_field::placeholder {
-    color: #424242;
-}
-
-#navbar {
-    background-color: #EFDAAF !important;
-}
-
-.theory-text {
-    padding-bottom: 2vh;
-}
-
-#teach-me-btn {
-    color: #410B13;
-    border-color: #410B13;
-}
-
-.btn-outline-primary:hover {
-    background-color: #410B13 !important;
-    color: white !important;
-    border-color: #410B13 !important;
-
-}
-
-/* @media (max-height: 2000px) {
-    header {
-      display: none;
-    }
-    footer {
-      display: none;
-    }
-    main {
-      flex: 1 100vh;
-    }
-  } */
-
-
-.nav-item {
-    margin: 0 .5em;
-}
-
-/* footer {
-    float: right;
-  } */
