@@ -15,22 +15,23 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='body bg-dark text-light'>
-        <header className='container-fluid'>
+    <main>
+    <div className='body'>
+        <header className='navbar navbar-expand-lg navbar-light bg-light' id="navbar">
           <nav className='navbar fixed-top navbar-dark'>
             <div className='navbar-brand'>
-              Simon<sup>&reg;</sup>
+              Conspiritorium
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
                 <NavLink className='nav-link' to=''>
-                  Login
+                  Home
                 </NavLink>
               </li>
               {authState === AuthState.Authenticated && (
                 <li className='nav-item'>
                   <NavLink className='nav-link' to='play'>
-                    Play
+                    My Files
                   </NavLink>
                 </li>
               )}
@@ -41,11 +42,11 @@ function App() {
                   </NavLink>
                 </li>
               )}
-              <li className='nav-item'>
+              {/* <li className='nav-item'>
                 <NavLink className='nav-link' to='about'>
                   About
                 </NavLink>
-              </li>
+              </li> */}
             </menu>
           </nav>
         </header>
@@ -73,13 +74,15 @@ function App() {
 
         <footer className='bg-dark text-dark text-muted'>
           <div className='container-fluid'>
-            <span className='text-reset'>Author Name(s)</span>
-            <a className='text-reset' href='https://github.com/webprogramming260/simon-react'>
+            <span className='text-reset'>Jared Robinson</span>
+            <a className='text-reset' href='https://github.com/jarobinson-121/startup/tree/main'>
               Source
             </a>
           </div>
         </footer>
       </div>
+    </main>
+      
     </BrowserRouter>
   );
 }

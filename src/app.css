@@ -1,12 +1,19 @@
+
+* {
+  font-family: 'Courier';
+}
+
 .body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
   height: 100vh;
+  background-color: #EFDAAF !important;
 }
 
 header {
   flex: 0 80px;
+  background-color: #EFDAAF !important;
 }
 
 main {
@@ -15,6 +22,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: #EFDAAF !important;
 }
 
 footer {
@@ -25,24 +33,36 @@ menu {
   flex: 1;
   display: flex;
   /*  overwrite Bootstrap so the menu does not wrap */
-  flex-direction: row !important;
+   flex-direction: row !important;
   list-style: none;
+  background-color: #EFDAAF !important;
 }
 
 .navbar-brand {
-  padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
+  padding-left: 2%;
+  padding-top: 1%;
+  font-size: 25px;
+  color: black !important;
 }
 
-menu .nav-item {
+#theme_input_field, #login-input-field {
+  background-color: #EFDAAF;
+  border-color: #410B13;
+  color: black !important; 
+  padding-top: 5vh;
+}
+
+menu .nav-item, menu .nav-link {
   padding: 0 0.3em;
+  color: black !important;
+  font-size: 20px;
 }
 
 footer a {
   float: right;
 }
 
-@media (max-height: 600px) {
+/* @media (max-height: 600px) {
   header {
     display: none;
   }
@@ -50,3 +70,111 @@ footer a {
     display: none;
   }
 }
+
+
+
+.body {
+  
+  height: 100vh;
+  flex: 1 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+  background-color: #EFDAAF !important;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background-color: #EFDAAF !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10vh 15%;
+}
+
+
+
+#top-secret {
+  position: absolute; 
+  right: 0; 
+  transform: rotate(45deg); 
+  z-index: 1;
+  opacity: .75;
+}
+
+#recent-disc-sec, .theories-header {
+  padding-top: 48px;
+}
+
+#recent-disc-text {
+  padding-bottom: 3vh;
+}
+
+#home-search {
+  padding-top: 48px;
+}
+
+#sign-in-btn, #show-me-btn, #login-btn {
+  background-color: #410B13;
+  color: white;
+  border-color: #410B13
+}
+
+#theme_input_field, #login-input-field {
+  background-color: #EFDAAF;
+  border-color: #410B13;
+  color: black !important; 
+}
+
+#theme_input_field::placeholder {
+  color: #424242;
+}
+
+#navbar-nav {
+  background-color: #EFDAAF !important;
+}
+
+.theory-text {
+  padding-bottom: 2vh;
+}
+
+#teach-me-btn {
+  color: #410B13;
+  border-color: #410B13;
+}
+
+.btn-outline-primary:hover {
+  background-color: #410B13 !important;
+  color: white !important;
+  border-color: #410B13 !important;
+
+}
+
+/* @media (max-height: 2000px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 100vh;
+  }
+} */
+
+
+.nav-item {
+  margin: 0 .5em;
+}
+
+/* footer {
+  float: right;
+} */ 
