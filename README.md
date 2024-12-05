@@ -63,3 +63,13 @@ For this deliverable I added CSS styling to the pages so they will appear as des
 * Elements - Good whitespace, object placement, and colors used.
 * Text - Consistent fonts imported.
 * Images - Bonus image added behind page content. 
+
+## React Deliverable
+
+For this deliverable I shifted the code to use Javascript and React components, as well as using local storage in place of a database.
+
+* Components - Login, Generator, and My Files are components  with mocks for login and Service
+    * Login - Login saves username, and unlocks My Files and Generator
+    * My Files - Shows saved theories from local storage
+    * Generator - allows them to enter a prompt and shows placeholder theory (will be generated using API in service)
+* Router - Routing between login and voting components.
