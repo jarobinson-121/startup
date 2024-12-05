@@ -7,11 +7,11 @@ export function Generator(props) {
 
   const navigate = useNavigate();
   const [theme, setTheme] = React.useState(props.theme);
-  // function generateNew(props) {
-  //   useNavigate();
-  //   const response = await fetch('https://api.example.com');
-  //   const data = await response.json();
-  // }
+  const [{ title, description }, newDetails] = React.useState({ title: 'Awaiting theme', description: 'Awaiting description' });
+
+  function generateNew(theme) {
+    newDetails({ title: 'The Great Spin Society', description: 'The "Great Laundry Conspiracy" suggests that detergent companies are part of a secret coalition called "The Spin Society," manipulating people through micro-particles in detergent that influence emotions and cause anxiety, making people wash their clothes more often. Washing machine manufacturers are also in on it, programming machines to wear clothes out faster to fuel endless consumption. Even the "gentle cycle" is secretly aggressive, ruining fabrics to push people to buy more clothes. The conspiracy extends across industries, with coordinated scents used to keep the public compliant, while the elites use special detergents free from these manipulative chemicals.'});
+  }
 
   // List of theories
   const theories = [
@@ -41,6 +41,12 @@ export function Generator(props) {
     ));
   }
 
+  function saveDetails() {
+    // Assuming you have a way to save the details, e.g., localStorage or a context
+    localStorage.setItem(`theory_${title}`, JSON.stringify({ title, description }));
+    navigate('/myfiles');
+  }
+
   return (
     <main>
       <h1>Open Your Eyes...</h1>
@@ -58,14 +64,24 @@ export function Generator(props) {
             type="text"
             placeholder="Enlighten me about..."
           />
-          <Button className="primary-btn" variant="primary" onClick={() => navigate('/generated')} disabled={!theme}>
+          <Button className="primary-btn" variant="primary" onClick={() => generateNew(theme)} disabled={!theme}>
             Show Me
           </Button>
         </div>
 
         <div id="recent-disc-sec">
-          <h2 id="recent-disc-text">Recent Discoveries by Others</h2>
-          {setTheories()}
+          <h2 id="recent-disc-text">{title === 'Awaiting theme' ? 'Recent Discoveries by Others' : 'New File Found!'}</h2>
+          {title === 'Awaiting theme' ? setTheories() : (
+            <div className="theory-text">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <div id="save-btn">
+                <Button className="primary-btn" variant='primary' onClick={() => saveDetails()}>
+                  Save File
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </main>
