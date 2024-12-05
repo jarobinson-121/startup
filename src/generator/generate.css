@@ -7,7 +7,6 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #EFDAAF !important;
 }
 
 .body {
@@ -26,12 +25,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  justify-content: center;
-  
 }
 
 header {
-  z-index: 1;
   flex: 0 80px;
   background-color: #EFDAAF !important;
 }
@@ -43,20 +39,17 @@ main {
   align-items: center;
   justify-content: space-around;
   background-color: #EFDAAF !important;
-  justify-content: center;
-  width: 100%;
-  margin-top: 73px; /* Adjust this value based on your header height */
+  /* width: 100%; */
 }
-
-footer {
-  flex: 0 50px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-  flex-shrink: 0;
-  background-color: #343a40 !important; /* Ensure the background color is set */
-  color: white !important; /* Ensure the text color is set */
+ 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  margin-bottom: 32px;
 }
 
 menu {
@@ -88,11 +81,11 @@ menu {
   padding-top: 5vh;
 }
 
-#recent-disc-sec, .theories-header {
+.recent-disc-sec, #theories-header {
   padding-top: 48px;
 }
 
-#recent-disc-text {
+.recent-disc-text {
   padding-bottom: 3vh;
 }
 
@@ -102,14 +95,9 @@ menu .nav-item, menu .nav-link {
   font-size: 16px;
 }
 
-.text-reset {
-  color: white;
-}
-
 #top-secret {
   position: absolute; 
   right: 0; 
-  padding-right: 30px;
   transform: rotate(45deg); 
   z-index: 0 !important;
   opacity: .5;
@@ -135,9 +123,9 @@ menu .nav-item, menu .nav-link {
   border-color: #410B13 !important; 
 }
 
-/* footer a {
+footer a {
   float: right;
-} */
+}
 
 /* @media (max-height: 600px) {
   header {

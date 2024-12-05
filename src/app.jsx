@@ -1,17 +1,23 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
-import { Play } from './play/play';
-import { Scores } from './scores/scores';
-import { About } from './about/about';
+import { MyFiles } from './files/myfiles';
+import { Generator } from './generator/generator';
+import { Generated } from './generator/generated';
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-function App() {
+export function App(props) {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+  const [imageUrl, setImageUrl] = React.useState('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=');
+
+  React.useEffect(() => {
+    setImageUrl(`conspirtatoriumIcon.png`);
+  }, []);
+
 
   return (
     <BrowserRouter>
@@ -19,9 +25,7 @@ function App() {
     <div className='body'>
         <header className='navbar navbar-expand-lg navbar-light bg-light' id="navbar">
           <nav className='navbar fixed-top navbar-dark'>
-            <div className='navbar-brand'>
-              Conspiritorium
-            </div>
+            <img  id="nav-icon" src={imageUrl} width="56px"/>
             <menu className='navbar-nav'>
               <li className='nav-item'>
                 <NavLink className='nav-link' to=''>
@@ -30,23 +34,11 @@ function App() {
               </li>
               {authState === AuthState.Authenticated && (
                 <li className='nav-item'>
-                  <NavLink className='nav-link' to='play'>
+                  <NavLink className='nav-link' to='myfiles'>
                     My Files
                   </NavLink>
                 </li>
               )}
-              {authState === AuthState.Authenticated && (
-                <li className='nav-item'>
-                  <NavLink className='nav-link' to='scores'>
-                    Scores
-                  </NavLink>
-                </li>
-              )}
-              {/* <li className='nav-item'>
-                <NavLink className='nav-link' to='about'>
-                  About
-                </NavLink>
-              </li> */}
             </menu>
           </nav>
         </header>
@@ -66,15 +58,15 @@ function App() {
             }
             exact
           />
-          <Route path='/play' element={<Play userName={userName} />} />
-          <Route path='/scores' element={<Scores />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/generated' element={<Generated userName={userName} />} />
+          <Route path='/myfiles' element={<MyFiles />} />
+          <Route path='/generator' element={<Generator />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 
-        <footer className='bg-dark text-dark text-muted'>
+        <footer>
           <div className='container-fluid'>
-            <span className='text-reset'>Jared Robinson</span>
+            <span >Jared Robinson</span>
             <a className='text-reset' href='https://github.com/jarobinson-121/startup/tree/main'>
               Source
             </a>
