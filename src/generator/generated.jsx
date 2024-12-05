@@ -8,7 +8,7 @@ export function Generated(props) {
   const [theme, setTheme] = React.useState(props.theme);
   const [title, setTitle] = React.useState('Awaiting theme');
   const [description, setDescription] = React.useState('Awaiting description');
-  const [nTheory, newTheory] = React.useState('No new theories yet');
+  const [theory, newTheory] = React.useState('No new theories yet');
 
   React.useEffect(() => {
     setTitle('The Spin Society');
