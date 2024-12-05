@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 
 export function Generated(props) {
+  const navigate = useNavigate();
+  
   const [theme, setTheme] = React.useState(props.theme);
   const [title, setTitle] = React.useState('Awaiting theme');
   const [description, setDescription] = React.useState('Awaiting description');
