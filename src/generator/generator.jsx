@@ -58,7 +58,7 @@ export function Generator(props) {
             type="text"
             placeholder="Enlighten me about..."
           />
-          <Button className="primary-btn" variant="primary" onClick={() => navigate('/generated')}>
+          <Button className="primary-btn" variant="primary" onClick={() => navigate('/generated')} disabled={!theme}>
             Show Me
           </Button>
         </div>

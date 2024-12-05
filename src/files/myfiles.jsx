@@ -50,8 +50,6 @@ export function MyFiles(props) {
             Show Me More
           </Button>
         </div>
-
-        
       </div>
     </main>
   );
