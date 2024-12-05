@@ -15,6 +15,12 @@ export function Generated(props) {
     setDetails({ title: 'The Great Spin Society', description: 'The "Great Laundry Conspiracy" suggests that detergent companies are part of a secret coalition called "The Spin Society," manipulating people through micro-particles in detergent that influence emotions and cause anxiety, making people wash their clothes more often. Washing machine manufacturers are also in on it, programming machines to wear clothes out faster to fuel endless consumption. Even the "gentle cycle" is secretly aggressive, ruining fabrics to push people to buy more clothes. The conspiracy extends across industries, with coordinated scents used to keep the public compliant, while the elites use special detergents free from these manipulative chemicals.'});
   }, []);
 
+  function saveDetails() {
+    // Assuming you have a way to save the details, e.g., localStorage or a context
+    localStorage.setItem('fileDetails', JSON.stringify({ title, description }));
+    navigate('/myfiles');
+  }
+
   function generateNew(props) {
     // will be added in the service step
   }
@@ -41,7 +47,7 @@ export function Generated(props) {
           </div>
         </div>
         <div id="save-btn">
-          <Button className="primary-btn" variant='primary' onClick={() => navigate('/myfiles')}>
+          <Button className="primary-btn" variant='primary' onClick={() => saveDetails()}>
             Save File
           </Button>
           <Button className="secondary-btn" variant='secondary' onClick={() => navigate('/generator')}>
