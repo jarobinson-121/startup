@@ -3,7 +3,6 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { MyFiles } from './files/myfiles';
 import { Generator } from './generator/generator';
-import { Generated } from './generator/generated';
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -58,7 +57,6 @@ export function App(props) {
             }
             exact
           />
-          <Route path='/generated' element={<Generated userName={userName} />} />
           <Route path='/myfiles' element={<MyFiles />} />
           <Route path='/generator' element={<Generator />} />
           <Route path='*' element={<NotFound />} />
