@@ -17,7 +17,7 @@ export function Generated(props) {
 
   function saveDetails() {
     // Assuming you have a way to save the details, e.g., localStorage or a context
-    localStorage.setItem('fileDetails', JSON.stringify({ title, description }));
+    localStorage.setItem(`theory_${title}`, JSON.stringify({ title, description }));
     navigate('/myfiles');
   }
 
