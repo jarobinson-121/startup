@@ -18,7 +18,7 @@ export function Authenticated(props) {
         </span>
       <div className='playerName'>{props.userName}</div>
       <div className="login-btns" style={{ display: 'flex', gap: '10px' }}>
-        <Button className="primary-btn" variant='primary' onClick={() => navigate('/generated')}>
+        <Button className="primary-btn" variant='primary' onClick={() => navigate('/generator')}>
           Enter
         </Button>
         <Button variant='secondary' onClick={() => logout()}>
