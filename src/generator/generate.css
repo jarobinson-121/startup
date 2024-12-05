@@ -43,6 +43,7 @@ main {
 }
  
 .content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,6 +122,13 @@ menu .nav-item, menu .nav-link {
   background-color: #410B13 !important;
   color: white;
   border-color: #410B13 !important; 
+}
+
+#save-btn {
+  display:flex;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 5%;
 }
 
 footer a {
