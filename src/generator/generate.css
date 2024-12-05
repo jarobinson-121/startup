@@ -122,6 +122,15 @@ menu .nav-item, menu .nav-link {
   background-color: #410B13 !important;
   color: white;
   border-color: #410B13 !important; 
+  margin-right: 1em;
+}
+
+.secondary-btn {
+  background-color: #EFDAAF !important;
+  color: #410B13 !important;
+  border-color: #410B13 !important; 
+  border-width: 2px !important;
+  font-weight: 500 !important;
 }
 
 #save-btn {
