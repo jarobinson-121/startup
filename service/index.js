@@ -3,8 +3,12 @@ const uuid = require('uuid');
 const app = express();
 
 let users = {};
+let theories = []
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
+
+// JSON body parsing using built-in middleware
+app.use(express.json());
 
 app.use(express.static('public'));
 
@@ -46,6 +50,17 @@ apiRouter.delete('/auth/logout', (req, res) => {
   }
   res.status(204).end();
 });
+
+// Get Theories
+apiRouter.get('/theories', (_req, res) => {
+    res.send(theories);
+  });
+
+// Submit New Theory
+apiRouter.post('/theory', (req, res) => {
+    scores = updateTheories(req.body, theories);
+    res.send(theories);
+  });
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
