@@ -41,7 +41,7 @@ export function Generated(props) {
               <p>{description}</p>
             </div>
           </div>
-          <Button className="primary-btn" variant='primary' onClick={() => navigate('/myfiles')} disabled={!theme} >
+          <Button className="primary-btn" variant='primary' onClick={() => navigate('/myfiles')}>
             Save File
           </Button>
       </div>
