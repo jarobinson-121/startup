@@ -46,9 +46,11 @@ export function MyFiles(props) {
         <div id="recent-disc-sec">
           {getTheories()}
         </div>
+        <div id="show-btn">
           <Button className="primary-btn" variant="primary" onClick={() => navigate('/generator')}>
-            Show Me More
-          </Button>
+              Show Me More
+            </Button>
+        </div>
         </div>
       </div>
     </main>

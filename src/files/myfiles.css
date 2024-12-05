@@ -123,6 +123,13 @@ menu .nav-item, menu .nav-link {
   border-color: #410B13 !important; 
 }
 
+#show-btn {
+  display:flex;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 5%;
+}
+
 footer a {
   float: right;
 }
