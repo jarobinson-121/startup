@@ -24,9 +24,37 @@ export function MyFiles(props) {
         "The flat Earth theory is the belief that the Earth is flat, rather than a sphere. This theory has been around for centuries, but has gained popularity in recent years due to the rise of the internet and social media. Proponents of the flat Earth theory claim that the Earth is a disc, with the North Pole at the center and the continents spread out around it. However, this theory has been debunked by scientists, who have provided overwhelming evidence that the Earth is round.",
     },
   ];
+  
+  React.useEffect(() => {
+    theories.forEach((theory) => {
+      localStorage.setItem(`theory_${theory.title}`, JSON.stringify(theory));
+    });
+  }, []);
+
+  function renderTheories() {
+    return theories.map((theory) => (
+      <div className="theory-text" key={theory.title}>
+        <h3>{theory.title}</h3>
+        <p>{theory.description}</p>
+      </div>
+    ));
+  }
+
+  function getTheoriesFromLocalStorage() {
+    const storedTheories = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('theory_')) {
+        const theory = JSON.parse(localStorage.getItem(key));
+        storedTheories.push(theory);
+      }
+    }
+    return storedTheories;
+  }
 
   function getTheories() {
-    return theories.map((theory, index) => (
+    const theoriesFromStorage = getTheoriesFromLocalStorage();
+    return theoriesFromStorage.map((theory, index) => (
       <div className="theory-text" key={index}>
         <h3>{theory.title}</h3>
         <p>{theory.description}</p>
