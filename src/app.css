@@ -128,6 +128,22 @@ menu .nav-item, menu .nav-link {
   justify-content: center;
   
 }
+#quote {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15% !important;
+  align-items: center;
+
+}
+
+#authorized-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .primary-btn {
   background-color: #410B13 !important;
