@@ -73,3 +73,15 @@ For this deliverable I shifted the code to use Javascript and React components, 
     * My Files - Shows saved theories from local storage
     * Generator - allows them to enter a prompt and shows placeholder theory (will be generated using API in service)
 * Router - Routing between login and voting components.
+
+## Service Deliverable
+
+For this deliverable I shifted the code to use Javascript and React components, as well as using local storage in place of a database.
+
+* Node/Express HTTP Service - done
+* Static middleware for frontend - done
+* Calls to third party endpoints - Calls both openai and joke api endpoints
+* Backend Service Endpoints - Placeholders for login storing credentials on the server, and storing saved theories on the server.
+* Frontend calls service endpoints - accomplished using fetch.
+
+    
