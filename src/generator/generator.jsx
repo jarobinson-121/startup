@@ -66,7 +66,19 @@ export function Generator(props) {
 
   function saveDetails() {
     // Assuming you have a way to save the details, e.g., localStorage or a context
-    localStorage.setItem(`theory_${title}`, JSON.stringify({ title, description }));
+    fetch('/api/theory')
+      .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+      })
+      .then(data => {
+      console.log('Details saved successfully:', data);
+      })
+      .catch(error => {
+      console.error('Error saving details:', error);
+      });
     navigate('/myfiles');
   }
 
