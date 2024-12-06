@@ -64,22 +64,24 @@ export function Generator(props) {
     ));
   }
 
-  function saveDetails() {
-    // Assuming you have a way to save the details, e.g., localStorage or a context
-    fetch('/api/theory')
-      .then(response => {
+  async function saveTheory() {
+    try {
+      const response = await fetch('/api/theory', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, description }),
+      });
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json();
-      })
-      .then(data => {
+
+      const data = await response.json();
       console.log('Details saved successfully:', data);
-      })
-      .catch(error => {
+      navigate('/myfiles');
+    } catch (error) {
       console.error('Error saving details:', error);
-      });
-    navigate('/myfiles');
+    }
   }
 
   return (
@@ -111,7 +113,7 @@ export function Generator(props) {
               <h3>{title}</h3>
               <p>{description}</p>
               <div id="save-btn">
-                <Button className="primary-btn" variant='primary' onClick={() => saveDetails()}>
+                <Button className="primary-btn" variant='primary' onClick={() => saveTheory()}>
                   Save File
                 </Button>
               </div>
