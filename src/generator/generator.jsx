@@ -2,15 +2,38 @@ import React from 'react';
 import './generate.css';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export function Generator(props) {
 
   const navigate = useNavigate();
-  const [theme, setTheme] = React.useState(props.theme);
+  const [theme, setTheme] = React.useState(props.theme||'');
   const [{ title, description }, newDetails] = React.useState({ title: 'Awaiting theme', description: 'Awaiting description' });
 
-  function generateNew(theme) {
-    newDetails({ title: 'The Great Spin Society', description: 'The "Great Laundry Conspiracy" suggests that detergent companies are part of a secret coalition called "The Spin Society," manipulating people through micro-particles in detergent that influence emotions and cause anxiety, making people wash their clothes more often. Washing machine manufacturers are also in on it, programming machines to wear clothes out faster to fuel endless consumption. Even the "gentle cycle" is secretly aggressive, ruining fabrics to push people to buy more clothes. The conspiracy extends across industries, with coordinated scents used to keep the public compliant, while the elites use special detergents free from these manipulative chemicals.'});
+
+  async function generateNew(theme) {
+    try {
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prompt: theme })
+      });
+  
+      if (!response.ok) {
+        // If the server responded with a non-2xx status, handle it as an error
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      const { title: theoryTitle, theory: theoryText } = data;
+      newDetails({ title: theoryTitle, description: theoryText });
+  
+    } catch (error) {
+      console.error("Error generating theory:", error);
+      newDetails({ title: 'Error', description: 'Failed to generate theory' });
+    }
   }
 
   // List of theories
