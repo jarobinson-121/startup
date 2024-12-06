@@ -103,6 +103,11 @@ apiRouter.delete('/auth/logout', (req, res) => {
   res.status(204).end();
 });
 
+function saveTheory(newTheory, theories) {
+    theories.push(newTheory);
+    return theories;
+}
+
 // Get Saved Theories
 apiRouter.get('/theories', (_req, res) => {
     res.send(theories);
@@ -110,7 +115,7 @@ apiRouter.get('/theories', (_req, res) => {
 
 // Submit New Theory
 apiRouter.post('/theory', (req, res) => {
-    scores = updateTheories(req.body, theories);
+    theories = saveTheory(req.body, theories);
     res.send(theories);
   });
 
