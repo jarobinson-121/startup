@@ -25,12 +25,12 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
-  const user = users[req.body.email];
+  const user = users[req.body.userName];
   if (user) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
-    const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
-    users[user.email] = user;
+    const user = { userName: req.body.userName, password: req.body.password, token: uuid.v4() };
+    users[user.userName] = user;
 
     res.send({ token: user.token });
   }
