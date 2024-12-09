@@ -126,17 +126,46 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-function saveTheory(newTheory, theories) {
-    theories.push(newTheory);
-    return theories;
-}
+secureApiRouter.post('/theory', async (req, res) => {
+    const authToken = req.cookies[authCookieName];
+    const newTheory = req.body;
 
-// Get Saved Theories
+    try {
+        const savedTheory = await DB.addTheory(newTheory, authToken);
+        res.send(savedTheory);
+    } catch (error) {
+        console.error('Error saving theory:', error);
+        res.status(500).send({ msg: 'Failed to save theory' });
+    }
+  });
+
+secureApiRouter.get('/theories', async (req, res) => {
+    const authToken = req.cookies[authCookieName];
+
+    try {
+        const user = await DB.getUserByToken(authToken);
+        if(user) {
+            res.send(user.theories);
+        } else {
+            res.status(401).send({ msg: 'Unauthorized' });
+        }
+    } catch (error) {
+        console.error('Error fetching theories:', error);
+        res.status(500).send({ msg: 'Failed to fetch theories' });
+    }
+});
+
+
+// Get user's saved theories
 apiRouter.get('/theories', (_req, res) => {
     res.send(theories);
   });
 
-// Submit New Theory
+// Need a route for save theory to recent theories list
+
+// Need a route to get list of recent theories
+
+// Save theory to user list
 apiRouter.post('/theory', (req, res) => {
     theories = saveTheory(req.body, theories);
     res.send(theories);
