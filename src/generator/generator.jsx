@@ -66,7 +66,7 @@ export function Generator(props) {
 
   async function saveTheory() {
     try {
-      const response = await fetch('/api/theory', {
+      const response = await fetch('/api/saveusertheory', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description }),
