@@ -8,7 +8,7 @@ export function MyFiles(props) {
   const [theories, setTheories] = useState([]);
 
   async function getTheoriesObject() {
-    const response = await fetch('/api/theories');
+    const response = await fetch('/api/usertheories');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
