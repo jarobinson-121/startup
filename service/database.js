@@ -7,7 +7,9 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('startup');
 const userCollection = db.collection('user');
-const theoryCollection = db.collection('theories');
+const theoryCollection = db.collection('recentTheories');
+
+const recentTheories = 'recentTheories';
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -34,30 +36,58 @@ async function createUser(userName, password) {
     username: userName,
     password: passwordHash,
     token: uuid.v4(),
+    theories: [],
   };
   await userCollection.insertOne(user);
 
   return user;
 }
 
-// async function addScore(score) {
-//   return theoryCollection.insertOne(score);
-// }
+async function addTheory(theory, userToken) {
+  const user = await getUserByToken(userToken);
 
-// function getHighScores() {
-//   const query = { score: { $gt: 0, $lt: 900 } };
-//   const options = {
-//     sort: { score: -1 },
-//     limit: 10,
-//   };
-//   const cursor = theoryCollection.find(query, options);
-//   return cursor.toArray();
-// }
+  if (!user) {
+    throw new Error('Invalid token. User not authenticated.');
+  }
+
+  await userCollection.updateOne(
+    { _id: user._id },
+    { $push: { theories: theory } } 
+  );
+
+  return theory;
+}
+
+async function initializeTheoriesList() {
+  try {
+    const record = await theoryCollection.findOne({ _id: recentTheories });
+
+    if (!record) {
+      await theoryCollection.insertOne({ _id: recentTheories, theories: [] });
+    }
+  } catch (error) {
+    console.error('Error initializing the recent theories list:', error.message);
+  }
+}
+
+async function addToList(theory) {
+  await theoryCollection.updateOne(
+    { _id: recentTheories },
+    { $push: { theories: { $each: [theory], $position: 0, $slice: 3}}}
+  );
+}
+
+async function getTheoriesList() {
+  const record = await theoryCollection.findOne({ _id: recentTheories });
+  return record ? record.theories : [];
+}
 
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  // addScore,
-  // getHighScores,
+  addTheory,
+  initializeTheoriesList,
+  addToList,
+  getTheoriesList,
 };
