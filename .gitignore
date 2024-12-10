@@ -1,2 +1,4 @@
 .env
 dbconfig.json
+
+node_modules/
