@@ -9,7 +9,9 @@ const axios = require('axios');
 const DB = require('./database.js');
 
 let users = {};
-let theories = []
+let theories = [];
+
+const authCookieName = 'token';
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
@@ -29,8 +31,6 @@ app.set('trust proxy', true);
 // Router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-
-const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false, });
 
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
