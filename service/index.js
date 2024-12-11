@@ -77,7 +77,7 @@ try {
         { "role": "user", "content": `Create a conspiracy theory based on: "${prompt}". Respond with a JSON object containing "title" and "theory". Do not include any additional text, Markdown, or code block formatting.` }
         ],
         max_tokens: 200,
-        temperature: 0.9,
+        temperature: 1.0,
     })
     });
 
@@ -91,14 +91,11 @@ try {
     let theoryTitle = "Untitled";
     let theoryText = rawText;
 
-    // Clean Markdown formatting
     if (rawText.startsWith("```")) {
     rawText = rawText.replace(/```(?:json)?|```/g, '').trim();
     }
 
-    // Attempt to parse JSON
     try {
-    console.log("Raw JSON String Before Parsing:", rawText); // Debugging
     const parsed = JSON.parse(rawText);
     theoryTitle = parsed.title;
     theoryText = parsed.theory;
@@ -108,6 +105,7 @@ try {
     }
 
     const newTheory = { title: theoryTitle, description: theoryText };
+    console.log("New Theory:", newTheory);
 
     try {
         await DB.addToList(newTheory);
@@ -185,16 +183,15 @@ secureApiRouter.post('/newtheory', async (req, res) => {
     }
   });
 
-
-// Need a route to get list of recent theories
-secureApiRouter.get('/recenttheories', async (req, res) => {
-    try {
-        const theories = await DB.getTheoriesList();
-        res.send(theories);
-    } catch (error) {
-        console.error('Error fetching recent theories:', error);
-        res.status(500).send({ msg: 'Failed to fetch recent theories' });
-    }
+apiRouter.get('/recenttheories', async (req, res) => {
+  try {
+    const theories = await DB.getTheoriesList();
+    console.log('Fetched recent theories:', theories);
+    res.send(theories);
+  } catch (error) {
+    console.error('Error fetching recent theories:', error.message);
+    res.status(500).send({ msg: 'Failed to fetch recent theories.' });
+  }
 });
 
 
