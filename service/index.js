@@ -62,50 +62,67 @@ apiRouter.post('/auth/login', async (req, res) => {
   });
 
 apiRouter.post('/generate', async (req, res) => {
-    const { prompt } = req.body;
-    try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${OPENAI_API_KEY}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            { "role": "system", "content": "You are a helpful assistant." },
-            { "role": "user", "content": `Create a conspiracy theory based on: "${prompt}". Respond in JSON with "title" and "theory" fields.` }
-          ],
-          max_tokens: 200,
-          temperature: 0.9,
-        })
-      });
-  
-      if (!response.ok) {
-        throw new Error(`OpenAI API Error: ${response.statusText}`);
-      }
-  
-      const data = await response.json();
-      const rawText = data.choices[0].message.content.trim();
-  
-      let theoryTitle = "Untitled";
-      let theoryText = rawText;
-      try {
-        const parsed = JSON.parse(rawText);
-        theoryTitle = parsed.title;
-        theoryText = parsed.theory;
-      } catch (err) {
-        console.error("Failed to parse model JSON:", err);
-      }
-  
-      res.json({ title: theoryTitle, theory: theoryText });
-    } catch (error) {
-      console.error("Error calling OpenAI API:", error);
-      res.status(500).json({ error: "Failed to generate theory" });
-    }
-  });
-    
+const { prompt } = req.body;
+try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+        "Authorization": `Bearer ${OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+        { "role": "system", "content": "You are a helpful assistant. Respond only with JSON." },
+        { "role": "user", "content": `Create a conspiracy theory based on: "${prompt}". Respond with a JSON object containing "title" and "theory". Do not include any additional text, Markdown, or code block formatting.` }
+        ],
+        max_tokens: 200,
+        temperature: 0.9,
+    })
+    });
 
+    if (!response.ok) {
+    throw new Error(`OpenAI API Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    let rawText = data.choices[0].message.content.trim();
+
+    let theoryTitle = "Untitled";
+    let theoryText = rawText;
+
+    // Clean Markdown formatting
+    if (rawText.startsWith("```")) {
+    rawText = rawText.replace(/```(?:json)?|```/g, '').trim();
+    }
+
+    // Attempt to parse JSON
+    try {
+    console.log("Raw JSON String Before Parsing:", rawText); // Debugging
+    const parsed = JSON.parse(rawText);
+    theoryTitle = parsed.title;
+    theoryText = parsed.theory;
+    } catch (err) {
+    console.error("Failed to parse model JSON:", err);
+    console.error("Cleaned Text Attempted to Parse:", rawText);
+    }
+
+    const newTheory = { title: theoryTitle, description: theoryText };
+
+    try {
+        await DB.addToList(newTheory);
+    } catch (error) {
+        console.error('Error saving theory to recent list:', error);
+        res.status(500).send({ msg: 'Failed to save theory to recent list' });
+    }
+
+    res.json(newTheory);
+} catch (error) {
+    console.error("Error calling OpenAI API:", error);
+    res.status(500).json({ error: "Failed to generate theory" });
+}
+});
+  
 // DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
     res.clearCookie(authCookieName);
