@@ -71,10 +71,25 @@ async function initializeTheoriesList() {
 }
 
 async function addToList(theory) {
-  await theoryCollection.updateOne(
-    { _id: recentTheories },
-    { $push: { theories: { $each: [theory], $position: 0, $slice: 3}}}
-  );
+  try {
+    console.log('Adding to list:', theory);
+    const result = await theoryCollection.updateOne(
+      { _id: recentTheories },
+      {
+        $push: {
+          theories: {
+            $each: [theory],
+            $position: 0,
+            $slice: 3,
+          },
+        },
+      },
+      { upsert: true }
+    );
+    console.log('Update result:', result);
+  } catch (error) {
+    console.error('Error adding to recent theories list:', error.message);
+  }
 }
 
 async function getTheoriesList() {
